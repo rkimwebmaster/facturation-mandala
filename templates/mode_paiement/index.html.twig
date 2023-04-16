@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Designation</th>
                 <th>Description</th>
                 <th>actions</th>
@@ -21,17 +21,17 @@
                 <td>{{ mode_paiement.designation }}</td>
                 <td>{{ mode_paiement.description }}</td>
                 <td>
-                    <a href="{{ path('app_mode_paiement_show', {'id': mode_paiement.id}) }}">show</a>
-                    <a href="{{ path('app_mode_paiement_edit', {'id': mode_paiement.id}) }}">edit</a>
+                    <a href="{{ path('app_mode_paiement_show', {'id': mode_paiement.id}) }}"><span class="fa fa-search-plus"></span></a>
+                    <a href="{{ path('app_mode_paiement_edit', {'id': mode_paiement.id}) }}"><span class="fa fa-edit"></span></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4"class="text-warning">aucun enregistrement dans le système</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_mode_paiement_new') }}">Create new</a>
+    <a href="{{ path('app_mode_paiement_new') }}"class="btn btn-primary">Créer nouveau</a>
 {% endblock %}

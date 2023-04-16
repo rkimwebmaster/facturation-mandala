@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Designation</th>
                 <th>Description</th>
                 <th>Prix</th>
@@ -18,22 +18,22 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
+                <td>{{ loop.index }}</td>
                 <td>{{ produit.designation }}</td>
                 <td>{{ produit.description }}</td>
                 <td>{{ produit.prix }}</td>
                 <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}"><span class="fa fa-search-plus"></span></a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"><span class="fa fa-edit"></span></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5"class="text-warning">aucun enregistrement dans le système</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_produit_new') }}">Create new</a>
+    <a href="{{ path('app_produit_new') }}"class="btn btn-primary">Créer nouveau</a>
 {% endblock %}

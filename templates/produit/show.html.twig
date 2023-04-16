@@ -8,7 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <td>{{ produit.id }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_produit_index') }}">back to list</a>
+    <a href="{{ path('app_produit_index') }}">retour à la liste </a>
 
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"><span class="fa fa-edit"></span></a>
 
     {{ include('produit/_delete_form.html.twig') }}
 {% endblock %}
