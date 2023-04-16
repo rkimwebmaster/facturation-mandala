@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Facture;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,10 +17,10 @@ class FactureType extends AbstractType
             ->add('prixTotal')
             ->add('observation')
             ->add('date')
-            ->add('updatedTime')
-            ->add('updatedAt')
             ->add('agent')
-            ->add('modePaiement')
+            ->add('modePaiement', ChoiceType::class, [
+                "choices"=>["Cash"=>"Cash", "MobileMoney"=>"MobileMoney","Abonnement"=>"Abonnement"]
+            ])
         ;
     }
 

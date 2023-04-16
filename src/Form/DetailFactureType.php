@@ -15,7 +15,7 @@ class DetailFactureType extends AbstractType
             ->add('quantite')
             ->add('totalLigne')
             ->add('produit')
-            ->add('facture')
+            // ->add('facture')
         ;
     }
 
