@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise index{% endblock %}
+
+{% block body %}
+    <h1>Entreprise index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomEntreprise</th>
+                <th>Slogan</th>
+                <th>Idnat</th>
+                <th>Rccm</th>
+                <th>Sigle</th>
+                <th>Logo</th>
+                <th>Description</th>
+                <th>Responsable</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>WhatsappNumber</th>
+                <th>Facebook</th>
+                <th>LinkedIn</th>
+                <th>Twitter</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Newsbg389x454</th>
+                <th>MenuBanner295x320Premier</th>
+                <th>MenuBanner295x320Deuxieme</th>
+                <th>MenuBanner295x320Troisieme</th>
+                <th>MainBanner1903x650Un</th>
+                <th>MainBanner1903x650Deux</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entreprise in entreprises %}
+            <tr>
+                <td>{{ entreprise.id }}</td>
+                <td>{{ entreprise.nomEntreprise }}</td>
+                <td>{{ entreprise.slogan }}</td>
+                <td>{{ entreprise.idnat }}</td>
+                <td>{{ entreprise.rccm }}</td>
+                <td>{{ entreprise.sigle }}</td>
+                <td>{{ entreprise.logo }}</td>
+                <td>{{ entreprise.description }}</td>
+                <td>{{ entreprise.responsable }}</td>
+                <td>{{ entreprise.phoneNumber }}</td>
+                <td>{{ entreprise.email }}</td>
+                <td>{{ entreprise.website }}</td>
+                <td>{{ entreprise.whatsappNumber }}</td>
+                <td>{{ entreprise.facebook }}</td>
+                <td>{{ entreprise.linkedIn }}</td>
+                <td>{{ entreprise.twitter }}</td>
+                <td>{{ entreprise.adresse }}</td>
+                <td>{{ entreprise.ville }}</td>
+                <td>{{ entreprise.pays }}</td>
+                <td>{{ entreprise.newsbg389x454 }}</td>
+                <td>{{ entreprise.menuBanner295x320Premier }}</td>
+                <td>{{ entreprise.menuBanner295x320Deuxieme }}</td>
+                <td>{{ entreprise.menuBanner295x320Troisieme }}</td>
+                <td>{{ entreprise.mainBanner1903x650Un }}</td>
+                <td>{{ entreprise.mainBanner1903x650Deux }}</td>
+                <td>
+                    <a href="{{ path('app_entreprise_show', {'id': entreprise.id}) }}">show</a>
+                    <a href="{{ path('app_entreprise_edit', {'id': entreprise.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="26">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_entreprise_new') }}">Create new</a>
+{% endblock %}

@@ -24,9 +24,9 @@ class Produit
     #[ORM\Column]
     private ?float $prix = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Unite $unite = null;
+    
+    #[ORM\Column(length: 255)]
+    private ?string $unite = null;
 
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: DetailFacture::class, orphanRemoval: true)]
     private Collection $detailFactures;
@@ -76,19 +76,7 @@ class Produit
 
         return $this;
     }
-
-    public function getUnite(): ?Unite
-    {
-        return $this->unite;
-    }
-
-    public function setUnite(?Unite $unite): self
-    {
-        $this->unite = $unite;
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection<int, DetailFacture>
      */
@@ -115,6 +103,18 @@ class Produit
                 $detailFacture->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUnite(): ?string
+    {
+        return $this->unite;
+    }
+
+    public function setUnite(string $unite): self
+    {
+        $this->unite = $unite;
 
         return $this;
     }

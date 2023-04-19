@@ -22,10 +22,6 @@ class Facture
     #[ORM\ManyToOne(inversedBy: 'factures')]
     private ?Agent $agent = null;
 
-    #[ORM\ManyToOne(inversedBy: 'factures')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ModePaiement $modePaiement = null;
-
     #[ORM\Column]
     private ?float $prixTotal = null;
 
@@ -74,18 +70,6 @@ class Facture
     public function setAgent(?Agent $agent): self
     {
         $this->agent = $agent;
-
-        return $this;
-    }
-
-    public function getModePaiement(): ?ModePaiement
-    {
-        return $this->modePaiement;
-    }
-
-    public function setModePaiement(?ModePaiement $modePaiement): self
-    {
-        $this->modePaiement = $modePaiement;
 
         return $this;
     }

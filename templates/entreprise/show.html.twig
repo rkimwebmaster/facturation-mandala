@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+
+{% block body %}
+    <h1>Entreprise</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entreprise.id }}</td>
+            </tr>
+            <tr>
+                <th>NomEntreprise</th>
+                <td>{{ entreprise.nomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Slogan</th>
+                <td>{{ entreprise.slogan }}</td>
+            </tr>
+            <tr>
+                <th>Idnat</th>
+                <td>{{ entreprise.idnat }}</td>
+            </tr>
+            <tr>
+                <th>Rccm</th>
+                <td>{{ entreprise.rccm }}</td>
+            </tr>
+            <tr>
+                <th>Sigle</th>
+                <td>{{ entreprise.sigle }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ entreprise.logo }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entreprise.description }}</td>
+            </tr>
+            <tr>
+                <th>Responsable</th>
+                <td>{{ entreprise.responsable }}</td>
+            </tr>
+            <tr>
+                <th>PhoneNumber</th>
+                <td>{{ entreprise.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entreprise.email }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ entreprise.website }}</td>
+            </tr>
+            <tr>
+                <th>WhatsappNumber</th>
+                <td>{{ entreprise.whatsappNumber }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ entreprise.facebook }}</td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td>{{ entreprise.linkedIn }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ entreprise.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entreprise.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ entreprise.ville }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ entreprise.pays }}</td>
+            </tr>
+            <tr>
+                <th>Newsbg389x454</th>
+                <td>{{ entreprise.newsbg389x454 }}</td>
+            </tr>
+            <tr>
+                <th>MenuBanner295x320Premier</th>
+                <td>{{ entreprise.menuBanner295x320Premier }}</td>
+            </tr>
+            <tr>
+                <th>MenuBanner295x320Deuxieme</th>
+                <td>{{ entreprise.menuBanner295x320Deuxieme }}</td>
+            </tr>
+            <tr>
+                <th>MenuBanner295x320Troisieme</th>
+                <td>{{ entreprise.menuBanner295x320Troisieme }}</td>
+            </tr>
+            <tr>
+                <th>MainBanner1903x650Un</th>
+                <td>{{ entreprise.mainBanner1903x650Un }}</td>
+            </tr>
+            <tr>
+                <th>MainBanner1903x650Deux</th>
+                <td>{{ entreprise.mainBanner1903x650Deux }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_entreprise_index') }}">back to list</a>
+
+    <a href="{{ path('app_entreprise_edit', {'id': entreprise.id}) }}">edit</a>
+
+    {{ include('entreprise/_delete_form.html.twig') }}
+{% endblock %}
