@@ -28,6 +28,9 @@ class Facture
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $observation = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $modePaiement = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -160,6 +163,18 @@ class Facture
                 $detailFacture->setFacture(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getModePaiement(): ?string
+    {
+        return $this->modePaiement;
+    }
+
+    public function setModePaiement(?string $modePaiement): self
+    {
+        $this->modePaiement = $modePaiement;
 
         return $this;
     }
