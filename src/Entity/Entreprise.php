@@ -16,40 +16,40 @@ class Entreprise
     #[ORM\Column(length: 255)]
     private ?string $nomEntreprise = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $slogan = null;
 	
 	
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $idnat = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $rccm = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $sigle = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
 	
 	
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $responsable = null;
 
     #[ORM\Column(length: 14)]
     private ?string $phoneNumber = null;
 	
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
 	
 	
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $website = null;
 
-    #[ORM\Column(length: 14)]
+    #[ORM\Column(length: 14, nullable: true)]
     private ?string $whatsappNumber = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -62,13 +62,13 @@ class Entreprise
     private ?string $twitter = null;
 
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $adresse = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $pays = null;
 
     #[ORM\Column(length: 255, nullable: true)]

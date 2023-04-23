@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Agent;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 
 class AgentCrudController extends AbstractCrudController
 {
@@ -12,14 +14,14 @@ class AgentCrudController extends AbstractCrudController
         return Agent::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            AssociationField::new('identite')->renderAsEmbeddedForm(IdentiteCrudController::class),
+            AssociationField::new('organisation')->setColumns(3),
         ];
     }
-    */
+    
 }

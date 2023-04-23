@@ -6,8 +6,10 @@ use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
+#[UniqueEntity(fields: ['designation'], message: 'Un nom similaire existe déjà dans le système. Choisissez-en un autre.')]
 class Produit
 {
     #[ORM\Id]

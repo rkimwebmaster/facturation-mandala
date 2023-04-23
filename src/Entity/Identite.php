@@ -79,7 +79,7 @@ class Identite
 
     public function setNom(string $nom): self
     {
-        $this->nom = $nom;
+        $this->nom = strtoupper($nom);
 
         return $this;
     }
@@ -91,7 +91,7 @@ class Identite
 
     public function setPostnom(string $postnom): self
     {
-        $this->postnom = $postnom;
+        $this->postnom = strtoupper($postnom);
 
         return $this;
     }
@@ -103,7 +103,7 @@ class Identite
 
     public function setPrenom(string $prenom): self
     {
-        $this->prenom = $prenom;
+        $this->prenom = strtoupper($prenom);
 
         return $this;
     }

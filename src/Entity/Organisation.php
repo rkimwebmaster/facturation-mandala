@@ -6,8 +6,10 @@ use App\Repository\OrganisationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: OrganisationRepository::class)]
+#[UniqueEntity(fields: ['designation'], message: 'Un nom similaire existe déjà dans le système. Choisissez-en un autre.')]
 class Organisation
 {
     #[ORM\Id]
@@ -30,6 +32,12 @@ class Organisation
     #[ORM\OneToMany(mappedBy: 'organisation', targetEntity: Agent::class, orphanRemoval: true)]
     private Collection $agents;
 
+    
+    public function __toString()
+    {
+        return $this->designation;
+    }
+
     public function __construct()
     {
         $this->agents = new ArrayCollection();
@@ -47,7 +55,7 @@ class Organisation
 
     public function setDesignation(string $designation): self
     {
-        $this->designation = $designation;
+        $this->designation = strtoupper($designation);
 
         return $this;
     }
@@ -59,7 +67,7 @@ class Organisation
 
     public function setDescription(?string $description): self
     {
-        $this->description = $description;
+        $this->description = strtoupper($description);
 
         return $this;
     }
