@@ -1,5 +1,20 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.client) }}
+    {{ form_row(form.agent) }}
+    {{ form_row(form.prixTotal) }}
+    {{ form_row(form.observation) }}
+    {{ form_row(form.modePaiement) }}
+    {{ form_row(form.date) }}
+
+    <ul class="tags" data-index="{{ form.detailFactures|length > 0 ? form.detailFactures|last.vars.name + 1 : 0 }}"
+    data-prototype="{{ form_widget(form.detailFactures.vars.prototype)|e('html_attr') }}">
+    
+    </ul>
+{# <button type="button" class="add_item_link" data-collection-holder-class="tags">Add a tag</button> #}
+
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('facture') }}">
     <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
+
+
+

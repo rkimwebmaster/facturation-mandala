@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\DetailFacture;
 use App\Entity\Facture;
 use App\Form\FactureType;
 use App\Repository\FactureRepository;
@@ -25,6 +26,11 @@ class FactureController extends AbstractController
     public function new(Request $request, FactureRepository $factureRepository): Response
     {
         $facture = new Facture();
+
+        $ligne1=new DetailFacture();
+
+        $facture->getDetailFactures()->add($ligne1);
+
         $form = $this->createForm(FactureType::class, $facture);
         $form->handleRequest($request);
 

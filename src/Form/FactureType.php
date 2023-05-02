@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Facture;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,7 +22,12 @@ class FactureType extends AbstractType
             ->add('modePaiement', ChoiceType::class, [
                 "choices"=>["Cash"=>"Cash", "MobileMoney"=>"MobileMoney","Abonnement"=>"Abonnement"]
             ])
-        ;
+            ->add('detailFactures', CollectionType::class, [
+                'entry_type' => DetailFactureType::class,
+                'entry_options' => ['label' => false],
+                'allow_add' => true,
+
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -31,3 +37,5 @@ class FactureType extends AbstractType
         ]);
     }
 }
+
+
